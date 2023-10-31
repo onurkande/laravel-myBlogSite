@@ -5,7 +5,7 @@
             <h4>add category</h4>
         </div>
         <div class="card-body">
-            <form action="{{url('dashboard/dynamic-edit/insert-category')}}" method="POST" enctype="multipart/form-data">
+            <form action="{{url('dashboard/dynamic-edit/insert-category')}}" method="POST">
             @csrf
                 <div class="row">
                     <div class="col-md-6">

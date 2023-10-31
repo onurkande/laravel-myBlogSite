@@ -5,7 +5,7 @@
             <h4>Edit Category</h4>
         </div>
         <div class="card-body">
-            <form action="{{url('dashboard/dynamic-edit/update-category/'.$records->id)}}" method="POST" enctype="multipart/form-data">
+            <form action="{{url('dashboard/dynamic-edit/update-category/'.$records->id)}}" method="POST">
                 @csrf
                 @method('PUT')
                 <div class="row">

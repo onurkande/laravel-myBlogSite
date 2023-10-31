@@ -29,16 +29,16 @@
                     <p>Add Category</p>
                     </a>
                 </li>
-                <li class="nav-item {{ Request::is('dashboard/dynamic-edit/foods') ? 'active':'' }}">
-                    <a class="nav-link" href="{{url('dashboard/dynamic-edit/foods')}}">
+                <li class="nav-item {{ Request::is('dashboard/dynamic-edit/blogs') ? 'active':'' }}">
+                    <a class="nav-link" href="{{url('dashboard/dynamic-edit/blogs')}}">
                     <i class="fa-solid fa-list"></i>
                     <p>Blogs</p>
                     </a>
                 </li>
-                <li class="nav-item {{ Request::is('dashboard/dynamic-edit/add-foods') ? 'active':'' }}">
-                    <a class="nav-link" href="{{url('dashboard/dynamic-edit/add-foods')}}">
+                <li class="nav-item {{ Request::is('dashboard/dynamic-edit/add-blog') ? 'active':'' }}">
+                    <a class="nav-link" href="{{url('dashboard/dynamic-edit/add-blog')}}">
                     <i class="fa-solid fa-plus"></i>
-                    <p>Add Blogs</p>
+                    <p>Add Blog</p>
                     </a>
                 </li>
             </ul>

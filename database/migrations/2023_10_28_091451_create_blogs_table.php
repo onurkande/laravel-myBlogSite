@@ -17,6 +17,8 @@ return new class extends Migration
             $table->bigInteger('cate_id')->nullable();
             $table->string('image');
             $table->string('title');
+            $table->string('slug');
+            $table->longText('content');
             $table->timestamps();
         });
     }

@@ -16,6 +16,14 @@
 
     <!-- CSS Files -->
     <link href="{{asset('admin/css/material-dashboard.css?v=2.1.2')}}" rel="stylesheet" />
+    <script src="{{ URL::asset('admin/js/ckeditor1.js') }}"></script>
+    <style type="text/css">
+        .ck-editor__editable_inline
+        {
+            height: 450px;
+            weight: 120px;
+        }
+    </style>
 
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
