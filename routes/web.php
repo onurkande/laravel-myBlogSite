@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
+use App\Http\Controllers\FrontendController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,9 +19,11 @@ require __DIR__.'/dynamic.php';
 
 Auth::routes();
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [FrontendController::class, 'index']);
+
+Route::get('/blogs', [FrontendController::class, 'blogs']);
+
+Route::get('blog-details/{id}', [FrontendController::class, 'blog_detail']);
 
 Route::get('/resume', function () {
     return view('resume');

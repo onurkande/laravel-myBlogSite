@@ -44,4 +44,59 @@ class BlogController extends Controller
         $blog->save();
         return redirect('dashboard/dynamic-edit/blogs')->with('store',"Blog eklendi");
     }
+
+    function edit($id)
+    {
+        $category = Category::all();
+        $records = Blog::find($id);
+        return view('admin.edit-blog',['records'=>$records,'category'=>$category]);
+    }
+
+    function update(Request $request, $id)
+    {
+        $blog = Blog::find($id);
+
+        if($request->hasFile('image'))
+        {
+            $path = 'admin/blogImage/'.$blog->image;
+            if(File::exists($path))
+            {
+                File::delete($path);
+            }
+            $file = $request->file('image');
+            $filename = $file->getClientOriginalName();
+            $file->move('admin/blogImage',$filename);
+            $blog->image = $filename;
+        }
+
+        $blog->title = $request->input('title');
+        $blog->slug = $request->input('slug');
+
+        $blog->content = $request->input('content');
+
+        $blog->cate_id = $request->input('cate_id');
+        $blog->save();
+        return redirect('dashboard/dynamic-edit/blogs')->with('update',"Blog güncellendi");
+    }
+
+    function delete($id)
+    {
+        $blog = Blog::find($id);
+        if($blog->image)
+        {
+            $path = 'admin/blogImage/'.$blog->image;
+            if(File::exists($path))
+            {
+                File::delete($path);
+            }
+        }
+        $blog->delete();
+        return redirect('dashboard/dynamic-edit/blogs')->with('delete',"Blog silindi");
+    }
+
+    function view()
+    {
+        $records = Blog::all();
+        return $records;
+    }
 }

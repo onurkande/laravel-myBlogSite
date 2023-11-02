@@ -41,6 +41,12 @@
                     <p>Add Blog</p>
                     </a>
                 </li>
+                <li class="nav-item {{ Request::is('dashboard/dynamic-edit/slider') ? 'active':'' }}">
+                    <a class="nav-link" href="{{url('dashboard/dynamic-edit/slider')}}">
+                    <i class="fa-solid fa-list"></i>
+                    <p>Slider</p>
+                    </a>
+                </li>
             </ul>
         </div>
         </div>

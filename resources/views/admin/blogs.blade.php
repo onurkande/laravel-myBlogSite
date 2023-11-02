@@ -59,8 +59,8 @@
                                 <img src="{{asset('admin/blogImage/'.$record->image)}}" alt="Image" width="300">
                             </td>
                             <td>
-                                <a href="{{url('/dashboard/dynamic-edit/edit-category/'.$record->id)}}" ><button class="btn btn-primary">Edit</button></a>
-                                <a href="{{url('/dashboard/dynamic-edit/delete-category/'.$record->id)}}" ><button class="btn btn-danger">Delete</button></a>
+                                <a href="{{url('/dashboard/dynamic-edit/edit-blog/'.$record->id)}}" ><button class="btn btn-primary">Edit</button></a>
+                                <a href="{{url('/dashboard/dynamic-edit/delete-blog/'.$record->id)}}" ><button class="btn btn-danger">Delete</button></a>
                             </td>
                         </tr>
                     @endforeach

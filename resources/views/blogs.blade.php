@@ -18,352 +18,68 @@
                                 <!-- BLOG LIST -->
                                 <div class="blog-list blog-stream">
                                     
-                                    
-                                    <!-- .hentry -->
-                                    <article class="hentry post has-post-thumbnail">
-                                    
-                                        <!-- .featured-image -->
-                                        <div class="featured-image">
-                                            <a href="blog-single.html" title="A Story About Knowing The Value Of Simplicity"><img src="images/blog/04.jpg" alt="blog-image"></a>
-                                        </div>
-                                        <!-- .featured-image -->
+                                    @foreach ($records as $record)
+                                        <!-- .hentry -->
+                                        <article class="hentry post has-post-thumbnail">
                                         
-                                        
-                                        
-                                        <!-- .hentry-middle -->
-                                        <div class="hentry-middle">
-                                        
-                                            <!-- .entry-header -->
-                                            <header class="entry-header">
-                                                
-                                                <!-- .entry-meta -->
-                                                <div class="entry-meta">
-                                                    <span class="cat-links">
-                                                        <a href="#" title="View all posts in Adventure" rel="category tag">LIFE</a>
-                                                    </span>	
-                                                    <span class="entry-date">
-                                                        <time class="entry-date" datetime="2014-07-13T04:34:10+00:00">June 7, 2014</time>
-                                                    </span>   
-                                                    <span class="comment-link">
-                                                        <a href="blog-single.html#comments">12 Comments</a>
-                                                    </span>
-                                                </div>
-                                                <!-- .entry-meta -->
-                                                
-                                                <!-- .entry-title -->
-                                                <h2 class="entry-title"><a href="blog-single.html" title="Stop Worrying About How Pretty It is">Mastering Portrait Photography</a></h2>
-                                                
-                                            </header>
-                                            <!-- .entry-header -->
+                                            <!-- .featured-image -->
+                                            <div class="featured-image">
+                                                <a href="{{url('/blog-details/'.$record->id)}}" title="{{$record->title}}"><img src="{{asset('admin/blogImage/'.$record->image)}}" alt="blog-image"></a>
+                                            </div>
+                                            <!-- .featured-image -->
                                             
-                                            <!-- .entry-content -->
-                                            <div class="entry-content">
-                                                                                
-                                                <p>All I've got to do is pass as an ordinary human being. Simple. What could possibly go wrong? Stop talking, brain thinking. Hush. I hate yogurt. It's just stuff with bits in. I'm nobody's taxi..
-                                                    <span class="more">
-                                                        <a href="blog-single.html" class="more-link">Read More</a>
-                                                    </span>
-                                                </p>
+                                            
+                                            
+                                            <!-- .hentry-middle -->
+                                            <div class="hentry-middle">
+                                            
+                                                <!-- .entry-header -->
+                                                <header class="entry-header">
+                                                    
+                                                    <!-- .entry-meta -->
+                                                    <div class="entry-meta">
+                                                        <span class="cat-links">
+                                                            <a href="#" title="View all posts in Adventure" rel="category tag">{{$record->category->name}}</a>
+                                                        </span>	
+                                                        <span class="entry-date">
+                                                            <time class="entry-date" datetime="2014-07-13T04:34:10+00:00">{{$record->created_at}}</time>
+                                                        </span>   
+                                                        <span class="comment-link">
+                                                            <a href="blog-single.html#comments">12 Comments</a>
+                                                        </span>
+                                                    </div>
+                                                    <!-- .entry-meta -->
+                                                    
+                                                    <!-- .entry-title -->
+                                                    <h2 class="entry-title"><a href="{{url('/blog-details/'.$record->id)}}" title="Stop Worrying About How Pretty It is">{{$record->title}}</a></h2>
+                                                    
+                                                </header>
+                                                <!-- .entry-header -->
+                                                
+                                                <!-- .entry-content -->
+                                                <div class="entry-content">
+                                                    @php
+                                                        $content = strip_tags($record->content); // HTML etiketlerini kaldırın
+                                                        $words = str_word_count($content, 1); // İçeriği kelimelere ayırın
+                                                        $summary = implode(' ', array_slice($words, 0, 16)); // İlk 75 kelimeyi alın
+                                                    @endphp
+                                                                                    
+                                                    <p>{!!$summary!!}..
+                                                        <span class="more">
+                                                            <a href="{{url('/blog-details/'.$record->id)}}" class="more-link">Read More</a>
+                                                        </span>
+                                                    </p>
+                                                
+                                                </div>
+                                                <!-- .entry-content -->
                                             
                                             </div>
-                                            <!-- .entry-content -->
-                                        
-                                        </div>
-                                        <!-- .hentry-middle -->
-                                        
-                                        
-                                    </article>
-                                    <!-- .hentry -->
-                                    
-                                    
-                                    
-                                    <!-- .hentry -->
-                                    <article class="hentry post has-post-thumbnail">
-                                    
-                                        <!-- .featured-image -->
-                                        <div class="featured-image">
-                                            <a href="blog-single.html" title="A Story About Knowing The Value Of Simplicity"><img src="images/blog/09.jpg" alt="blog-image"></a>
-                                        </div>
-                                        <!-- .featured-image -->
-                                        
-                                        
-                                        
-                                        <!-- .hentry-middle -->
-                                        <div class="hentry-middle">
-                                        
-                                            <!-- .entry-header -->
-                                            <header class="entry-header">
-                                                
-                                                <!-- .entry-meta -->
-                                                <div class="entry-meta">
-                                                    <span class="cat-links">
-                                                        <a href="#" title="View all posts in Adventure" rel="category tag">Travel</a>
-                                                    </span>	
-                                                    <span class="entry-date">
-                                                        <time class="entry-date" datetime="2014-07-13T04:34:10+00:00">June 7, 2014</time>
-                                                    </span>    
-                                                    <span class="comment-link">
-                                                        <a href="blog-single.html#comments">12 Comments</a>
-                                                    </span>
-                                                </div>
-                                                <!-- .entry-meta -->
-                                                
-                                                <!-- .entry-title -->
-                                                <h2 class="entry-title"><a href="blog-single.html" title="Stop Worrying About How Pretty It is">Embracing Nomadic Lifestyle</a></h2>
-                                                
-                                            </header>
-                                            <!-- .entry-header -->
+                                            <!-- .hentry-middle -->
                                             
-                                            <!-- .entry-content -->
-                                            <div class="entry-content">
-                                                                                
-                                                <p>All I've got to do is pass as an ordinary human being. Simple. What could possibly go wrong? Stop talking, brain thinking. Hush. I hate yogurt. It's just stuff with bits in. I'm nobody's taxi..
-                                                    <span class="more">
-                                                        <a href="blog-single.html" class="more-link">Read More</a>
-                                                    </span>
-                                                </p>
                                             
-                                            </div>
-                                            <!-- .entry-content -->
-
-                                        
-                                        </div>
-                                        <!-- .hentry-middle -->
-                                        
-                                        
-                                        
-                                        
-                                    </article>
-                                    <!-- .hentry -->
-                                    
-                                    
-                                    
-                                    <!-- .hentry -->
-                                    <article class="hentry post has-post-thumbnail">
-                                    
-                                        <!-- .featured-image -->
-                                        <div class="featured-image">
-                                            <a href="blog-single.html" title="A Story About Knowing The Value Of Simplicity"><img src="images/blog/07.jpg" alt="blog-image"></a>
-                                        </div>
-                                        <!-- .featured-image -->
-                                        
-                                        
-                                        <!-- .hentry-middle -->
-                                        <div class="hentry-middle">
-                                        
-                                            <!-- .entry-header -->
-                                            <header class="entry-header">
-                                                
-                                                <!-- .entry-meta -->
-                                                <div class="entry-meta">
-                                                    <span class="cat-links">
-                                                        <a href="#" title="View all posts in Adventure" rel="category tag">LIFE</a>
-                                                    </span>	
-                                                    <span class="entry-date">
-                                                        <time class="entry-date" datetime="2014-07-13T04:34:10+00:00">June 7, 2014</time>
-                                                    </span>   
-                                                    <span class="comment-link">
-                                                        <a href="blog-single.html#comments">12 Comments</a>
-                                                    </span>
-                                                </div>
-                                                <!-- .entry-meta -->
-                                                
-                                                <!-- .entry-title -->
-                                                <h2 class="entry-title"><a href="blog-single.html" title="Stop Worrying About How Pretty It is">Mastering Portrait Photography</a></h2>
-                                                
-                                            </header>
-                                            <!-- .entry-header -->
-                                            
-                                            <!-- .entry-content -->
-                                            <div class="entry-content">
-                                                                                
-                                                <p>All I've got to do is pass as an ordinary human being. Simple. What could possibly go wrong? Stop talking, brain thinking. Hush. I hate yogurt. It's just stuff with bits in. I'm nobody's taxi..
-                                                    <span class="more">
-                                                        <a href="blog-single.html" class="more-link">Read More</a>
-                                                    </span>
-                                                </p>
-                                            
-                                            </div>
-                                            <!-- .entry-content -->
-                                        
-                                        </div>
-                                        <!-- .hentry-middle -->
-                                        
-                                        
-                                    </article>
-                                    <!-- .hentry -->
-                                    
-                                    
-                                    <!-- .hentry -->
-                                    <article class="hentry post has-post-thumbnail">
-
-                                    
-                                        <!-- .featured-image -->
-                                        <div class="featured-image">
-                                            <a href="blog-single.html" title="A Story About Knowing The Value Of Simplicity"><img src="images/blog/05.jpg" alt="blog-image"></a>
-                                        </div>
-                                        <!-- .featured-image -->
-                                        
-                                        
-                                        <!-- .hentry-middle -->
-                                        <div class="hentry-middle">
-                                        
-                                            <!-- .entry-header -->
-                                            <header class="entry-header">
-                                                
-                                                <!-- .entry-meta -->
-                                                <div class="entry-meta">
-                                                    <span class="cat-links">
-                                                        <a href="#" title="View all posts in Adventure" rel="category tag">LIFE</a>
-                                                    </span>	
-                                                    <span class="entry-date">
-                                                        <time class="entry-date" datetime="2014-07-13T04:34:10+00:00">June 7, 2014</time>
-                                                    </span>   
-                                                    <span class="comment-link">
-                                                        <a href="blog-single.html#comments">12 Comments</a>
-                                                    </span>
-                                                </div>
-                                                <!-- .entry-meta -->
-                                                
-                                                <!-- .entry-title -->
-                                                <h2 class="entry-title"><a href="blog-single.html" title="Stop Worrying About How Pretty It is">Mastering Portrait Photography</a></h2>
-                                                
-                                            </header>
-                                            <!-- .entry-header -->
-                                            
-                                            <!-- .entry-content -->
-                                            <div class="entry-content">
-                                                                                
-                                                <p>All I've got to do is pass as an ordinary human being. Simple. What could possibly go wrong? Stop talking, brain thinking. Hush. I hate yogurt. It's just stuff with bits in. I'm nobody's taxi..
-                                                    <span class="more">
-                                                        <a href="blog-single.html" class="more-link">Read More</a>
-                                                    </span>
-                                                </p>
-                                            
-                                            </div>
-                                            <!-- .entry-content -->
-                                        
-                                        </div>
-                                        <!-- .hentry-middle -->
-                                        
-                                        
-                                    </article>
-                                    <!-- .hentry -->
-                                    
-                                    
-                                    <!-- .hentry -->
-                                    <article class="hentry post has-post-thumbnail">
-                                    
-                                        <!-- .featured-image -->
-                                        <div class="featured-image">
-                                            <a href="blog-single.html" title="A Story About Knowing The Value Of Simplicity"><img src="images/blog/slide-02.jpg" alt="blog-image"></a>
-                                        </div>
-                                        <!-- .featured-image -->
-                                        
-                                        
-                                        <!-- .hentry-middle -->
-                                        <div class="hentry-middle">
-                                        
-                                            <!-- .entry-header -->
-                                            <header class="entry-header">
-                                                
-                                                <!-- .entry-meta -->
-                                                <div class="entry-meta">
-                                                    <span class="cat-links">
-                                                        <a href="#" title="View all posts in Adventure" rel="category tag">LIFE</a>
-                                                    </span>	
-                                                    <span class="entry-date">
-                                                        <time class="entry-date" datetime="2014-07-13T04:34:10+00:00">June 7, 2014</time>
-                                                    </span>   
-                                                    <span class="comment-link">
-                                                        <a href="blog-single.html#comments">12 Comments</a>
-                                                    </span>
-                                                </div>
-                                                <!-- .entry-meta -->
-                                                
-                                                <!-- .entry-title -->
-                                                <h2 class="entry-title"><a href="blog-single.html" title="Stop Worrying About How Pretty It is">Mastering Portrait Photography</a></h2>
-                                                
-                                            </header>
-                                            <!-- .entry-header -->
-                                            
-                                            <!-- .entry-content -->
-                                            <div class="entry-content">
-                                                                                
-                                                <p>All I've got to do is pass as an ordinary human being. Simple. What could possibly go wrong? Stop talking, brain thinking. Hush. I hate yogurt. It's just stuff with bits in. I'm nobody's taxi..
-                                                    <span class="more">
-                                                        <a href="blog-single.html" class="more-link">Read More</a>
-                                                    </span>
-                                                </p>
-                                            
-                                            </div>
-                                            <!-- .entry-content -->
-                                        
-                                        </div>
-                                        <!-- .hentry-middle -->
-                                        
-                                        
-                                    </article>
-                                    <!-- .hentry -->
-                                    
-                                    
-                                    <!-- .hentry -->
-                                    <article class="hentry post has-post-thumbnail">
-                                    
-                                        <!-- .featured-image -->
-                                        <div class="featured-image">
-                                            <a href="blog-single.html" title="A Story About Knowing The Value Of Simplicity"><img src="images/blog/slide-01.jpg" alt="blog-image"></a>
-                                        </div>
-                                        <!-- .featured-image -->
-                                        
-                                        
-                                        <!-- .hentry-middle -->
-                                        <div class="hentry-middle">
-                                        
-                                            <!-- .entry-header -->
-                                            <header class="entry-header">
-                                                
-                                                <!-- .entry-meta -->
-                                                <div class="entry-meta">
-                                                    <span class="cat-links">
-                                                        <a href="#" title="View all posts in Adventure" rel="category tag">LIFE</a>
-                                                    </span>	
-                                                    <span class="entry-date">
-                                                        <time class="entry-date" datetime="2014-07-13T04:34:10+00:00">June 7, 2014</time>
-                                                    </span>   
-                                                    <span class="comment-link">
-                                                        <a href="blog-single.html#comments">12 Comments</a>
-                                                    </span>
-                                                </div>
-                                                <!-- .entry-meta -->
-                                                
-                                                <!-- .entry-title -->
-                                                <h2 class="entry-title"><a href="blog-single.html" title="Stop Worrying About How Pretty It is">Mastering Portrait Photography</a></h2>
-                                                
-                                            </header>
-                                            <!-- .entry-header -->
-                                            
-                                            <!-- .entry-content -->
-                                            <div class="entry-content">
-                                                                                
-                                                <p>All I've got to do is pass as an ordinary human being. Simple. What could possibly go wrong? Stop talking, brain thinking. Hush. I hate yogurt. It's just stuff with bits in. I'm nobody's taxi..
-                                                    <span class="more">
-                                                        <a href="blog-single.html" class="more-link">Read More</a>
-                                                    </span>
-                                                </p>
-                                            
-                                            </div>
-                                            <!-- .entry-content -->
-                                        
-                                        </div>
-                                        <!-- .hentry-middle -->
-                                        
-                                        
-                                    </article>
-                                    <!-- .hentry -->
-                                    
-                                                                
-                                
+                                        </article>
+                                        <!-- .hentry -->  
+                                    @endforeach
                                 </div>
                                 <!-- BLOG LIST -->
                             

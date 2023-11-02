@@ -2,17 +2,19 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <h4>add blog</h4>
+            <h4>edit blog</h4>
         </div>
         <div class="card-body">
-            <form action="{{url('dashboard/dynamic-edit/insert-blog')}}" method="POST" enctype="multipart/form-data">
+            <form action="{{url('dashboard/dynamic-edit/update-blog/'.$records->id)}}" method="POST" enctype="multipart/form-data">
             @csrf
+            @method('PUT')
                 <div class="row">
                     <div class="col-md-12 mb-3">
                         <select class="form-select" name="cate_id">
-                            <option value="">Select a Category</option>
-                            @foreach ($records as $record)
-                                <option value="{{$record->id}}">{{ $record->name }}</option>
+                            @foreach ($category as $single)
+                                <option value="{{ $single->id }}" @if ($single->id == $records->category->id) selected @endif>
+                                    {{ $single->name }}
+                                </option>
                             @endforeach
                         </select>
                     </div>
@@ -21,21 +23,30 @@
                 <div class="row">
                     <div class="col-md-6">
                         <label for="">Title</label>
-                        <input type="text" class="form-control" name="title">
+                        <input type="text" class="form-control" name="title" value="{{$records->title}}">
                     </div>
                     <div class="col-md-6">
                         <label for="">Slug</label>
-                        <input type="text" class="form-control" name="slug">
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label for="">Image*</label>
-                            <input type="file" class="form-control" name="image">
-                        </div>
+                        <input type="text" class="form-control" name="slug" value="{{$records->slug}}">
                     </div>
                 </div>
+
+                <br>
+                <div class="row">
+                    <label for="">Image*</label>
+                    <div class="col-md-6">
+                        <img src="{{asset('admin/blogImage/'.$records->image)}}" alt="Image" width="300">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="file" class="form-control" name="image">
+                    </div>
+                </div>
+                <br>
+
                 <label for="">Content*</label>
-                <textarea cols="4000" id="editor" name="content"></textarea>
+                <textarea cols="4000" id="editor" name="content">{{$records->content}}</textarea>
                 <div class="row">
                     <div class="col-md-12">
                         <button type="submit" class="btn btn-primary">Submit</button>

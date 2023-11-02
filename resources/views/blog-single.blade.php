@@ -8,7 +8,7 @@
             <img src="images/blog/02.jpg">
             
             <!-- .post-thumbnail -->
-            <div class="post-thumbnail" style="background-image:url(images/blog/01.jpg)">
+            <div class="post-thumbnail" style="background-image:url({{asset('admin/blogImage/'.$records->image)}})">
                                         
                 <!-- .entry-header -->
                 <header class="entry-header">
@@ -17,18 +17,18 @@
                     <!-- .entry-meta -->
                     <div class="entry-meta">
                         <span class="cat-links">
-                            <a href="#" title="View all posts in Travel" rel="category tag">Travel</a>
+                            <a href="#" title="View all posts in Travel" rel="category tag">{{$records->category->name}}</a>
                         </span>	
                     </div>
                     <!-- .entry-meta -->
                     
                     <!-- .entry-title -->
-                    <h1 class="entry-title">Mastering Portrait Photography</h1>
+                    <h1 class="entry-title">{{$records->title}}</h1>
                                     
                     <!-- .entry-meta -->
                     <div class="entry-meta">
                         <span class="entry-date">
-                            <time class="entry-date" datetime="2014-07-13T04:34:10+00:00">July 13, 2014</time>
+                            <time class="entry-date" datetime="2014-07-13T04:34:10+00:00">{{$records->created_at}}</time>
                         </span> 
                         <span class="comment-link">
                             <a href="#comments">4 Comments</a>
@@ -67,47 +67,7 @@
                             <!-- .entry-content -->
                             <div class="entry-content">
                                                                     
-                                <p>Ahoy there my friend. He'll want to use your yacht, and I don't want this thing smelling like fish. Steve Holt! No! I was ashamed to be SEEN with you. I like being with you. Marry me. It's called 'taking advantage.' It's what gets you ahead in life. I'm a monster. Army had half a day. I don't criticize you! And if you're worried about criticism, sometimes a diet is the best defense.</p>
-                                <h3>I'm afraid I just blue myself.</h3>
-                                <p>First place chick is hot, but has an attitude, doesn't date magicians. Really? Did nothing cancel? Well, what do you expect, mother? Michael!</p>
-                                <p>Really? Did nothing cancel? Did you enjoy your meal, Mom? You drank it fast enough. Not tricks, Michael, illusions. That's what it said on 'Ask Jeeves.' Really? Did nothing cancel?</p>
-                                
-                                
-                                <!-- blockquote -->
-                                <blockquote>"It's simple until you make it complicated"
-                                    <cite>JASON FRIED, 37SIGNALS</cite>
-                                </blockquote>
-                                <!-- blockquote -->
-                                <p>Now, when you do this without getting punched in the chest, you'll have more fun. Whoa, this guy's straight? It's a hug, Michael. I'm hugging you. Well, what do you expect, mother? I'm afraid I just blue myself.</p>
-                                <p>Guy's a pro. Get me a vodka rocks. And a piece of toast. I don't criticize you! And if you're worried about criticism, sometimes a diet is the best defense. Did you enjoy your meal, Mom? You drank it fast enough.</p>
-                                <p>It's called 'taking advantage.' It's what gets you ahead in life. I've opened a door here that I regret. Marry me. Guy's a pro.</p>
-                                <h2>There's only one man I've ever called a coward</h2>
-                                <p>Steve Holt! No, I did not kill Kitty. However, I am going to oblige and answer the nice officer's questions because I am an honest man with no secrets to hide. I don't criticize you! And if you're worried about criticism, sometimes a diet is the best defense.</p>
-                                <p>Army had half a day. Marry me. We just call it a sausage.</p>
-                                <p>Guy's a pro. Now, when you do this without getting punched in the chest, you'll have more fun. He'll want to use your yacht, and I don't want this thing smelling like fish. We just call it a sausage. I don't criticize you! And if you're worried about criticism, sometimes a diet is the best defense.</p>
-                                <p>No! I was ashamed to be SEEN with you. I like being with you. There's so many poorly chosen words in that sentence. No… but I'd like to be asked! Whoa, this guy's straight?</p>
-                                <p>There's so many poorly chosen words in that sentence. Now, when you do this without getting punched in the chest, you'll have more fun. No… but I'd like to be asked! There's only one man I've ever called a coward, and that's Brian Doyle Murray. No, what I'm calling you is a television actor.</p>
-                                
-                                <!-- blockquote -->
-                                <blockquote class="alignleft">Stay hungry, stay foolish.
-                                    <cite>Steve JOBS</cite>
-                                </blockquote>
-                                <!-- blockquote -->
-                                
-                                <p>Guy's a pro. I care deeply for nature. What's Spanish for "I know you speak English?" First place chick is hot, but has an attitude, doesn't date magicians. Whoa, this guy's straight? Whoa, this guy's straight?</p>
-                                <p>No, I did not kill Kitty. However, I am going to oblige and answer the nice officer's questions because I am an honest man with no secrets to hide. Not tricks, Michael, illusions. That's why you always leave a note!</p>
-                                <p>Across from where? I'm afraid I just blue myself. No… but I'd like to be asked! Guy's a pro. What's Spanish for "I know you speak English?"</p>
-                                <p><a href="images/blog/03.jpg"><img src="images/blog/03.jpg" alt="Image" class="alignright"></a>Oh, you're gonna be in a coma, all right. I care deeply for nature. I care deeply for nature. I'm a monster. I don't criticize you! And if you're worried about criticism, sometimes a diet is the best defense.</p>
-                                <p>No… but I'd like to be asked! It's a hug, Michael. I'm hugging you. There's only one man I've ever called a coward, and that's Brian Doyle Murray. No, what I'm calling you is a television actor.</p>
-                                
-                                <p>You've swallowed a planet! Stop talking, brain thinking. Hush. It's art! A statement on modern society, 'Oh Ain't Modern Society Awful?'! No… It's a thing; it's like a plan, but with more greatness.</p>
-                                <p>Saving the world with meals on wheels. Did I mention we have comfy chairs? I am the last of my species, and I know how that weighs on the heart so don't lie to me! No, I'll fix it. I'm good at fixing rot. Call me the Rotmeister. No, I'm the Doctor. Don't call me the Rotmeister.</p>
-                                <p>Sorry, checking all the water in this area; there's an escaped fish. I hate yogurt. It's just stuff with bits in. Aw, you're all Mr. Grumpy Face today.</p>
-                                <h4>Better Readability</h4>
-                                <p>I hate yogurt. It's just stuff with bits in. You've swallowed a planet! They're not aliens, they're Earth…liens! Did I mention we have comfy chairs? Father Christmas. Santa Claus. Or as I've always known him: Jeff.</p>
-                                <p>I'm nobody's taxi service; I'm not gonna be there to catch you every time you feel like jumping out of a spaceship. Sorry, checking all the water in this area; there's an escaped fish. It's art! A statement on modern society, 'Oh Ain't Modern Society Awful?'!</p>
-                                <p>It's art! A statement on modern society, 'Oh Ain't Modern Society Awful?'! Did I mention we have comfy chairs? Did I mention we have comfy chairs? All I've got to do is pass as an ordinary human being. Simple. What could possibly go wrong?</p>
-                                <p>Heh-haa! Super squeaky bum time! You hit me with a cricket bat. Annihilate? No. No violence. I won't stand for it. Not now, not ever, do you understand me?! I'm the Doctor, the Oncoming Storm - and you basically meant beat them in a football match, didn't you?</p>
+                                {!!$records->content!!}
                                 
                                 
                                     <!-- .post-tags -->
