@@ -47,6 +47,12 @@
                     <p>Slider</p>
                     </a>
                 </li>
+                <li class="nav-item {{ Request::is('dashboard/dynamic-edit/header') ? 'active':'' }}">
+                    <a class="nav-link" href="{{url('dashboard/dynamic-edit/header')}}">
+                    <i class="fa-solid fa-list"></i>
+                    <p>Header</p>
+                    </a>
+                </li>
             </ul>
         </div>
         </div>

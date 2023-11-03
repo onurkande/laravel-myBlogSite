@@ -6,8 +6,10 @@ use Livewire\Component;
 
 class Header extends Component
 {
+    public $records;
     public function render()
     {
-        return view('livewire.site.header');
+        $this->records=app('App\Http\Controllers\HeaderController')->view();
+        return view('livewire.site.header',['records'=>$this->records]);
     }
 }

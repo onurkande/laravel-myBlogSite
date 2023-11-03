@@ -4,6 +4,7 @@
     use App\Http\Controllers\AdminController;
     use App\Http\Controllers\CategoryController;
     use App\Http\Controllers\BlogController;
+    use App\Http\Controllers\HeaderController;
     use App\Http\Controllers\SliderController;
 
     Route::prefix('dashboard/dynamic-edit')->group(function () {
@@ -27,5 +28,9 @@
             Route::get('slider', [SliderController::class, 'index']);
             Route::post('insert-slider', [SliderController::class, 'store']);
             Route::put('update-slider/{id}', [SliderController::class, 'update']);
+            
+            Route::get('header', [HeaderController::class, 'index']);
+            Route::post('insert-header', [HeaderController::class, 'store']);
+            Route::post('update-header/{id}', [HeaderController::class, 'update']);
         });
     });
