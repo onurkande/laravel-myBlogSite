@@ -25,4 +25,10 @@ class FrontendController extends Controller
         $records = Blog::all();
         return view('blogs',['records'=>$records]);
     }
+
+    function about()
+    {
+        $records = app('App\Http\Controllers\AboutController')->view();
+        return view('about',['records'=>$records]);
+    }
 }

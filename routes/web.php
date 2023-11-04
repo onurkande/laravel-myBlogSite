@@ -41,6 +41,8 @@ Route::get('/about', function () {
     return view('about');
 });
 
+Route::get('/about', [FrontendController::class, 'about']);
+
 Route::get('/shortcodes', function () {
     return view('shortcodes');
 });

@@ -1,4 +1,5 @@
 <?php
+
     use Illuminate\Support\Facades\Route;
 
     use App\Http\Controllers\AdminController;
@@ -7,6 +8,7 @@
     use App\Http\Controllers\FooterController;
     use App\Http\Controllers\HeaderController;
     use App\Http\Controllers\SliderController;
+    use App\Http\Controllers\AboutController;
 
     Route::prefix('dashboard/dynamic-edit')->group(function () {
         Route::middleware(['auth','isAdmin'])->group(function () {
@@ -37,5 +39,10 @@
             Route::get('footer', [FooterController::class, 'index']);
             Route::post('insert-footer', [FooterController::class, 'store']);
             Route::post('update-footer/{id}', [FooterController::class, 'update']);
+
+            Route::get('about', [AboutController::class, 'index']);
+            Route::post('insert-about', [AboutController::class, 'store']);
+            Route::post('update-about/{id}', [AboutController::class, 'update']);
+            Route::get('deleteAll-about/{id}', [AboutController::class, 'deleteAbout']);
         });
     });
