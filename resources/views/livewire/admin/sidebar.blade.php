@@ -49,8 +49,14 @@
                 </li>
                 <li class="nav-item {{ Request::is('dashboard/dynamic-edit/header') ? 'active':'' }}">
                     <a class="nav-link" href="{{url('dashboard/dynamic-edit/header')}}">
-                    <i class="fa-solid fa-list"></i>
+                    <i class="fa-solid fa-heading"></i>
                     <p>Header</p>
+                    </a>
+                </li>
+                <li class="nav-item {{ Request::is('dashboard/dynamic-edit/footer') ? 'active':'' }}">
+                    <a class="nav-link" href="{{url('dashboard/dynamic-edit/footer')}}">
+                    <i class="fa-solid fa-shoe-prints"></i>
+                    <p>Footer</p>
                     </a>
                 </li>
             </ul>

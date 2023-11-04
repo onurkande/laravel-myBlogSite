@@ -4,6 +4,7 @@
     use App\Http\Controllers\AdminController;
     use App\Http\Controllers\CategoryController;
     use App\Http\Controllers\BlogController;
+    use App\Http\Controllers\FooterController;
     use App\Http\Controllers\HeaderController;
     use App\Http\Controllers\SliderController;
 
@@ -32,5 +33,9 @@
             Route::get('header', [HeaderController::class, 'index']);
             Route::post('insert-header', [HeaderController::class, 'store']);
             Route::post('update-header/{id}', [HeaderController::class, 'update']);
+
+            Route::get('footer', [FooterController::class, 'index']);
+            Route::post('insert-footer', [FooterController::class, 'store']);
+            Route::post('update-footer/{id}', [FooterController::class, 'update']);
         });
     });

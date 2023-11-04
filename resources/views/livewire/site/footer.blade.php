@@ -20,12 +20,12 @@
                     <!-- site-title : image-logo -->
                     <h1 class="site-title">
                         <a href="index.html" rel="home">
-                            <img src="images/site/logo.png" alt="logo">
+                            <img src="{{asset('admin/headerImage/'.$header->image)}}" alt="logo">
                         </a>
                     </h1>
                     <!-- site-title -->
                     
-                    <p class="site-description">just living the life as it goes by</p>
+                    <p class="site-description">{{$records->content}}</p>
                 
                 </div>
                 <!-- site-title-wrap -->
@@ -35,11 +35,13 @@
                 <div class="footer-social">
                 	
                     <div class="textwidget">
-                        <a class="social-link facebook" href="#"></a>
-                        <a class="social-link twitter" href="#"></a>
-                        <a class="social-link vine" href="#"></a>
-                        <a class="social-link dribbble" href="#"></a>
-                        <a class="social-link instagram" href="#"></a>
+                        @php
+                            $icons = json_decode($records->icons, TRUE);
+                            $iconsUrl = json_decode($records->iconsUrl, TRUE);
+                        @endphp
+                        @foreach($icons as $key=>$single)
+                            <a class="{!!$single!!}" href="{{$iconsUrl[$key]}}"></a>
+                        @endforeach
                     </div>
                     
                 </div>
@@ -153,7 +155,7 @@
                 <!-- layout-medium -->
             	<div class="layout-medium">
                 
-            		<div class="textwidget">crafted with <i class="pw-icon-heart"></i> <em>by</em> Pixelwars</div>
+            		<div class="textwidget">{!! $records->smallContent !!}</div>
                 
                 </div>
             	<!-- layout-medium -->
