@@ -24,8 +24,8 @@
                                 <!-- .contact-form -->
                                 <div class="contact-form">
                                 
-                                <form id="contact-form" class="validate-form" method="post" action="send-mail.php">
-                                    
+                                <form id="contact-form" class="validate-form" method="post" action="{{url('dashboard/dynamic-edit/insert-contact')}}">
+                                    @csrf
                                     <!-- enter mail subject here -->
                                     <input type="hidden" name="subject" id="subject" value="You have a new message!">
                                     

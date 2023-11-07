@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -36,6 +37,8 @@ Route::get('/blog-single', function () {
 Route::get('/contact', function () {
     return view('contact');
 });
+
+Route::post('insert-contact', [ContactController::class, 'store']);
 
 Route::get('/about', function () {
     return view('about');
