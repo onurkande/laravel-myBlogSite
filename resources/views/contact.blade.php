@@ -1,6 +1,16 @@
 @extends('layouts.main')
 @section('title','contact')
 @section('content')
+    @if(session()->has('store'))
+        <div class="alert alert-success" role="alert">
+            {{ session()->get('store') }}
+        </div>
+        <script>
+            setTimeout(function() {
+                $('.alert').fadeOut();
+            }, 5000);
+        </script>
+    @endif
     <!-- site-main -->
     <div id="main" class="site-main">
         <div class="layout-medium"> 
@@ -24,7 +34,7 @@
                                 <!-- .contact-form -->
                                 <div class="contact-form">
                                 
-                                <form id="contact-form" class="validate-form" method="post" action="{{url('dashboard/dynamic-edit/insert-contact')}}">
+                                <form class="validate-form" method="POST" action="{{url('insert-contact')}}">
                                     @csrf
                                     <!-- enter mail subject here -->
                                     <input type="hidden" name="subject" id="subject" value="You have a new message!">
@@ -49,7 +59,8 @@
                                     </p>
                                 
                                     <p>
-                                    <button class="submit button"><span class="submit-label">Submit</span><span class="submit-status"></span></button>
+                                    {{-- <button class="submit button"><span class="submit-label">Submit</span><span class="submit-status"></span></button> --}}
+                                    <input type="submit" class="submit button" value="Submit">
                                     </p>
                                     
                                 </form>
