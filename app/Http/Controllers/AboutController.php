@@ -84,6 +84,31 @@ class AboutController extends Controller
         return redirect('dashboard/dynamic-edit/about')->with('update', "About güncellendi");
     }
 
+    function delete($id)
+    {
+        $about = About::first();
+        $icons = json_decode($about->icons, TRUE);
+        $iconsUrl = json_decode($about->iconsUrl, TRUE);
+
+        $index = array_search($id, $icons);
+
+        if($icons[$index] && $iconsUrl[$index])
+        {
+            unset($icons[$index]);
+            unset($iconsUrl[$index]);
+            
+            $about->icons = json_encode(array_values($icons), JSON_UNESCAPED_UNICODE);
+            $about->iconsUrl = json_encode(array_values($iconsUrl), JSON_UNESCAPED_UNICODE);
+            $about->save();
+
+            return redirect('dashboard/dynamic-edit/about')->with('update', "about güncellendi");
+        } 
+        else
+        {
+            echo "Değer dizide bulunamadı.";
+        }
+    }
+
     function deleteAbout($id)
     {
         $about = About::find($id);

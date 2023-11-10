@@ -35,14 +35,18 @@
             Route::get('header', [HeaderController::class, 'index']);
             Route::post('insert-header', [HeaderController::class, 'store']);
             Route::post('update-header/{id}', [HeaderController::class, 'update']);
+            Route::get('HeaderRows-delete/{id}', [HeaderController::class, 'delete']);
+            Route::get('HeaderRowsIcons-delete/{id}', [HeaderController::class, 'deleteIcon']);
 
             Route::get('footer', [FooterController::class, 'index']);
             Route::post('insert-footer', [FooterController::class, 'store']);
             Route::post('update-footer/{id}', [FooterController::class, 'update']);
+            Route::get('FooterRows-delete/{id}', [FooterController::class, 'delete']);
 
             Route::get('about', [AboutController::class, 'index']);
             Route::post('insert-about', [AboutController::class, 'store']);
             Route::post('update-about/{id}', [AboutController::class, 'update']);
+            Route::get('AboutRows-delete/{id}', [AboutController::class, 'delete']);
             Route::get('deleteAll-about/{id}', [AboutController::class, 'deleteAbout']);
         });
     });

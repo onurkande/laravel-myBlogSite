@@ -86,6 +86,56 @@ class HeaderController extends Controller
         return redirect('dashboard/dynamic-edit/header')->with('update', "header güncellendi");
     }
 
+    function delete($id)
+    {
+        $header = Header::first();
+        $pages = json_decode($header->pages, TRUE);
+        $pagesUrl = json_decode($header->pagesUrl, TRUE);
+
+        $index = array_search($id, $pages);
+
+        if($pages[$index] && $pagesUrl[$index])
+        {
+            unset($pages[$index]);
+            unset($pagesUrl[$index]);
+            
+            $header->pages = json_encode(array_values($pages), JSON_UNESCAPED_UNICODE);
+            $header->pagesUrl = json_encode(array_values($pagesUrl), JSON_UNESCAPED_UNICODE);
+            $header->save();
+
+            return redirect('dashboard/dynamic-edit/header')->with('update', "header güncellendi");
+        } 
+        else
+        {
+            echo "Değer dizide bulunamadı.";
+        }
+    }
+
+    function deleteIcon($id)
+    {
+        $header = Header::first();
+        $icons = json_decode($header->icons, TRUE);
+        $iconsUrl = json_decode($header->iconsUrl, TRUE);
+
+        $index = array_search($id, $icons);
+
+        if($icons[$index] && $iconsUrl[$index])
+        {
+            unset($icons[$index]);
+            unset($iconsUrl[$index]);
+            
+            $header->icons = json_encode(array_values($icons), JSON_UNESCAPED_UNICODE);
+            $header->iconsUrl = json_encode(array_values($iconsUrl), JSON_UNESCAPED_UNICODE);
+            $header->save();
+
+            return redirect('dashboard/dynamic-edit/header')->with('update', "header güncellendi");
+        } 
+        else
+        {
+            echo "Değer dizide bulunamadı.";
+        }
+    }
+
     function view()
     {
         $header = Header::first();

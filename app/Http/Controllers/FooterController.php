@@ -60,6 +60,31 @@ class FooterController extends Controller
         return redirect('dashboard/dynamic-edit/footer')->with('update', "footer güncellendi");
     }
 
+    function delete($id)
+    {
+        $footer = Footer::first();
+        $icons = json_decode($footer->icons, TRUE);
+        $iconsUrl = json_decode($footer->iconsUrl, TRUE);
+
+        $index = array_search($id, $icons);
+
+        if($icons[$index] && $iconsUrl[$index])
+        {
+            unset($icons[$index]);
+            unset($iconsUrl[$index]);
+            
+            $footer->icons = json_encode(array_values($icons), JSON_UNESCAPED_UNICODE);
+            $footer->iconsUrl = json_encode(array_values($iconsUrl), JSON_UNESCAPED_UNICODE);
+            $footer->save();
+
+            return redirect('dashboard/dynamic-edit/footer')->with('update', "footer güncellendi");
+        } 
+        else
+        {
+            echo "Değer dizide bulunamadı.";
+        }
+    }
+
     function view()
     {
         $footer = Footer::first();

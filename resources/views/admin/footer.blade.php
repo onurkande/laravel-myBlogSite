@@ -56,9 +56,16 @@
                             @php
                                 $icons = json_decode($records->icons, TRUE);
                             @endphp
+                            <div class="row">
                             @foreach($icons as $single)
-                                <input type="text" class="form-control" name="icons[]" value="{{$single}}" oninput="checkInputValues()">
+                                <div class="col-md-1">
+                                    <a href="{{url('dashboard/dynamic-edit/FooterRows-delete/'.$single)}}"><button class="btn-danger" type="button">Sil</button></a>
+                                </div>
+                                <div class="col-md-11">
+                                    <input type="text" class="form-control" name="icons[]" value="{{$single}}" oninput="checkInputValues()">
+                                </div>
                             @endforeach
+                            </div> 
                             <section id="more-icons">
                             </section>
                             <div>

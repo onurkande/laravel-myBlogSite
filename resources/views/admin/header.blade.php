@@ -69,9 +69,16 @@
                             @php
                                 $icons = json_decode($records->icons, TRUE);
                             @endphp
+                            <div class="row">
                             @foreach($icons as $single)
-                                <input type="text" class="form-control" name="icons[]" value="{{$single}}" oninput="checkInputiconsValues()">
+                                <div class="col-md-1">
+                                    <a href="{{url('dashboard/dynamic-edit/HeaderRowsIcons-delete/'.$single)}}"><button class="btn-danger" type="button">Sil</button></a>
+                                </div>
+                                <div class="col-md-11">
+                                    <input type="text" class="form-control" name="icons[]" value="{{$single}}" oninput="checkInputiconsValues()">
+                                </div>
                             @endforeach
+                            </div> 
                             <section id="more-icons">
                             </section>
                             <div>
@@ -100,9 +107,16 @@
                             @php
                                 $pages = json_decode($records->pages, TRUE);
                             @endphp
-                            @foreach($pages as $single)
-                                <input type="text" class="form-control" name="pages[]" value="{{$single}}" oninput="checkInputpagesValues()">
-                            @endforeach
+                            <div class="row">
+                                @foreach($pages as $single)
+                                <div class="col-md-1">
+                                    <a href="{{url('dashboard/dynamic-edit/HeaderRows-delete/'.$single)}}"><button class="btn-danger" type="button">Sil</button></a>
+                                </div>
+                                <div class="col-md-11">
+                                    <input type="text" class="form-control" name="pages[]" value="{{$single}}" oninput="checkInputpagesValues()">
+                                </div>
+                                @endforeach
+                            </div>
                             <section id="more-pages">
                             </section>
                             <div>
@@ -116,7 +130,7 @@
                                 $pagesUrl = json_decode($records->pagesUrl, TRUE);
                             @endphp
                             @foreach($pagesUrl as $single)
-                                <input type="text" class="form-control" name="pagesUrl[]" value="{{$single}}" oninput="checkInputpagesValues()">
+                                    <input type="text" class="form-control" name="pagesUrl[]" value="{{$single}}" oninput="checkInputpagesValues()">
                             @endforeach
                             <section id="more-pagesUrl">
                             </section>
