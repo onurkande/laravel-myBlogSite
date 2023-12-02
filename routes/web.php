@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\BlogPostNotificationController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -30,10 +32,6 @@ Route::get('/resume', function () {
     return view('resume');
 });
 
-Route::get('/blog-single', function () {
-    return view('blog-single');
-});
-
 Route::get('/contact', function () {
     return view('contact');
 });
@@ -60,3 +58,11 @@ Route::get('/404', function () {
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/search', [FrontendController::class, 'search']);
+
+Route::post('insert-comment', [CommentController::class, 'store']);
+
+Route::post('insert-email', [BlogPostNotificationController::class, 'store']);
+
+Route::get('deneme-email', [BlogPostNotificationController::class, 'subscribe']);

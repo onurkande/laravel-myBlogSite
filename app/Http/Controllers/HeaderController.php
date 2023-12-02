@@ -139,6 +139,12 @@ class HeaderController extends Controller
     function view()
     {
         $header = Header::first();
-        return $header;
+        if($header != null)
+        {
+            return $header;
+        }else
+        {
+            return null;
+        }
     }
 }

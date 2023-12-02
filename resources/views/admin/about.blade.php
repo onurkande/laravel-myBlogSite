@@ -64,6 +64,10 @@
                             <label for="">Title*</label>
                             <input type="text" class="form-control" name="title" value="{{$records->title}}">
                         </div>
+                        <div class="col-md-6">
+                            <label for="">Name</label>
+                            <input type="text" class="form-control" name="name" value="{{$records->name}}">
+                        </div>
                     </div>
 
                     <br>
@@ -124,6 +128,10 @@
                         <div class="col-md-6">
                             <label for="">Title*</label>
                             <input type="text" class="form-control" name="title">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="">Name</label>
+                            <input type="text" class="form-control" name="name">
                         </div>
                         <div class="col-md-6">
                             <label for="">Image*</label>

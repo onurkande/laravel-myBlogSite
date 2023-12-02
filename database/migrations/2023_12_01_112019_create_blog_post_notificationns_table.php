@@ -11,14 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('abouts', function (Blueprint $table) {
+        Schema::create('blog_post_notificationns', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('name')->nullable();
-            $table->string('image');
-            $table->longText('content');
-            $table->json('icons')->nullable();
-            $table->json('iconsUrl')->nullable();
+            $table->string('email');
             $table->timestamps();
         });
     }
@@ -28,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('abouts');
+        Schema::dropIfExists('blog_post_notificationns');
     }
 };

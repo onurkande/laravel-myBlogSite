@@ -27,6 +27,7 @@ class AboutController extends Controller
         }
 
         $about->title = $request->input('title');
+        $about->name = $request->input('name');
 
         $icons = $request->input('icons');
         $icons = json_encode($icons, JSON_UNESCAPED_UNICODE);
@@ -67,6 +68,7 @@ class AboutController extends Controller
         }
 
         $about->title = $request->input('title');
+        $about->name = $request->input('name');
 
         $icons = $request->input('icons');
         $icons = json_encode($icons, JSON_UNESCAPED_UNICODE);

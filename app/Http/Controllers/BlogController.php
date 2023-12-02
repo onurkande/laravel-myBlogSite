@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Controllers\BlogPostNotificationController;
 
 class BlogController extends Controller
 {
@@ -41,7 +42,14 @@ class BlogController extends Controller
 
         $blog->cate_id = $request->input('cate_id');
         $blog->user_id = $user_id;
+
         $blog->save();
+
+        $lastId = Blog::latest()->value('id');
+
+        $BlogPostNotificationController = new BlogPostNotificationController();
+        $BlogPostNotificationController->subscribe($lastId);
+
         return redirect('dashboard/dynamic-edit/blogs')->with('store',"Blog eklendi");
     }
 

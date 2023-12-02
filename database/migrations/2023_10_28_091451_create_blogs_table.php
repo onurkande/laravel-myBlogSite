@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug');
             $table->longText('content');
+            $table->bigInteger('views')->default(0);
             $table->timestamps();
         });
     }

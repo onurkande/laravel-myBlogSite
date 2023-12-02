@@ -56,15 +56,21 @@ class SliderController extends Controller
     function view()
     {
         $records = Slider::first();
-        if($records->count() === 0 || $records == null)
+        if($records == null)
         {
             return null;
         }else
         {
-            $selectedBlogs = json_decode($records->selectedBlogs, TRUE);
-            $selectedBlogPosts = Blog::whereIn('id', $selectedBlogs)->get();
-            // dd(gettype($selectedBlogPosts));
-            return $selectedBlogPosts;
+            if($records != " ")
+            {
+                $selectedBlogs = json_decode($records->selectedBlogs, TRUE);
+                $selectedBlogPosts = Blog::whereIn('id', $selectedBlogs)->get();
+                // dd(gettype($selectedBlogPosts));
+                return $selectedBlogPosts;
+            }else
+            {
+                return null;
+            }
         }
     }
 }

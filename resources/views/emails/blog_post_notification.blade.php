@@ -8,7 +8,7 @@
     <meta name="description" content="Impose - Responsive HTML5 Template">
     <meta name="keywords" content="personal, blog, html5">
     <meta name="author" content="Pixelwars">
-    <title>@yield('title')</title>
+    <title>email</title>
     
     <!-- FAV and TOUCH ICONS -->
     <link rel="shortcut icon" href="{{asset('assets/images/ico/favicon.ico')}}">
@@ -43,18 +43,50 @@
 
     <!-- page -->
     <div id="page" class="hfeed site">
-        
-        <!-- header -->
-        @livewire('site.header')
-        <!-- header -->
+
 
         <!-- site-main -->
-        @yield('content')
+        <div id="main" class="site-main"> <!-- .featured-top -->
+            <div class="featured-top">
+                    
+                <img src="images/blog/02.jpg">
+                
+                <!-- .post-thumbnail -->
+                <div class="post-thumbnail" style="background-image:url({{asset('admin/blogImage/'.$data['image'])}})">
+                                            
+                    <!-- .entry-header -->
+                    <header class="entry-header">
+                        
+                                        
+                        <!-- .entry-meta -->
+                        <div class="entry-meta">
+                            <span class="cat-links">
+                                <a href="#" title="View all posts in Travel" rel="category tag">{{$data['category']}}</a>
+                            </span>	
+                        </div>
+                        <!-- .entry-meta -->
+                        
+                        <!-- .entry-title -->
+                        <h1 class="entry-title">{{$data['title']}}</h1>
+                                        
+                        <!-- .entry-meta -->
+                        <div class="entry-meta">
+                            <span class="entry-date">
+                                <time class="entry-date" datetime="2014-07-13T04:34:10+00:00">{{$data['created_at']}}</time>
+                            </span>
+                        </div>
+                        <!-- .entry-meta -->
+                        
+                    </header>
+                    <!-- .entry-header -->
+                    
+                </div>
+                <!-- .post-thumbnail -->
+                
+            </div>
+            <!-- .featured-top -->	
+        </div>
         <!-- site-main -->
-
-        <!-- site-footer -->
-        @livewire('site.footer')
-        <!-- site-footer -->
 
         
 	</div>
@@ -85,9 +117,6 @@
     <script src="{{asset('assets/js/main.js')}}"></script>
     <script src="{{asset('assets/js/shortcodes/shortcodes.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-    @yield('script')
-
-    @livewireScripts
 
 </body>
 </html>

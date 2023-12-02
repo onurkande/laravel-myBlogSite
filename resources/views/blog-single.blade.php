@@ -98,55 +98,31 @@
                                     
                                     <!-- .nav-single -->
                                 <nav class="nav-single row">
+                                    @php
+                                        $previousPost = $blogs->where('id', '<', $records->id)->sortByDesc('created_at')->first();
+                                        $nextPost = $blogs->where('id', '>', $records->id)->sortBy('created_at')->first();
+                                    @endphp
                                 
-                                    <div class="nav-previous col-xs-6">
-                                        <h4>PREVIOUS POST</h4>
-                                        <a href="#" rel="prev">Adding A Personal Touch To Your Web Design</a>
-                                    </div>
+                                    @if($previousPost)
+                                        <div class="nav-previous col-xs-6">
+                                            <h4>ÖNCEKİ POST</h4>
+                                            <a href="{{url('/blog-details/'.$previousPost->id)}}" rel="prev">{{$previousPost->title}}</a>
+                                        </div>
+                                    @endif
                                     
-                                    <div class="nav-next col-xs-6">
-                                        <h4>NEXT POST</h4>
-                                        <a href="#" rel="next">How To Build Long-Term Client Relationships</a>
-                                    </div>
+                                    @if($nextPost)
+                                        <div class="nav-next col-xs-6">
+                                            <h4>SONRAKİ POST</h4>
+                                            <a href="{{url('/blog-details/'.$nextPost->id)}}" rel="next">{{$nextPost->title}}</a>
+                                        </div>
+                                    @endif
                                     
                                 </nav>
                                 <!-- .nav-single -->
                                     
                                     
                                 <!-- .about-author -->
-                                <aside class="about-author">
-                                    
-                                    <h3>About The Author</h3>
-                                    
-                                    <!-- .author-bio --> 
-                                    <div class="author-bio">
-                                        
-                                        <!-- .author-img --> 
-                                        <div class="author-img">
-                                            <a href="#"><img alt="Johnny Doe" src="images/site/author-1.jpg" class="avatar"></a>												
-                                        </div>
-                                        <!-- .author-img -->
-                                        
-                                        <!-- .author-info -->
-                                        <div class="author-info">
-                                            <h4 class="author-name">Jeff Winger</h4>
-                                            <p>Johnny Doe was born in Ulm, in the Kingdom of Württemberg in the German Empire on 14 March 1879. His father was Hermann Einstein, a salesman and engineer. He was a really good man for sure.</p>
-                                            
-                                            <p>
-                                                <a class="social-link facebook" href="#"></a>
-                                                <a class="social-link twitter" href="#"></a>
-                                                <a class="social-link vine" href="#"></a>
-                                                <a class="social-link dribbble" href="#"></a>
-                                                <a class="social-link instagram" href="#"></a>
-                                            </p>
-                                            
-                                        </div>
-                                        <!-- .author-info -->
-                                        
-                                    </div>
-                                    <!-- .author-bio --> 
-                                    
-                                </aside>
+                                @livewire('site.about')
                                 <!-- .about-author -->
                                 
                                 
@@ -166,57 +142,32 @@
                         <aside class="related-posts">
                         
                             <h3>You May Also Like</h3>
+                            @php
+                                //$topBlogs = $blogs->where('cate_id', $records->category->id)->all();
+                                $topBlogs = $blogs->where('cate_id', $records->category->id)
+                                    ->sortByDesc('view')
+                                    ->take(3)
+                                    ->values();
+                            @endphp
                         
-                            <!-- post -->
-                            <div class="post-thumbnail" style="background-image:url(images/blog/02.jpg)">
+                            @foreach($topBlogs as $single)
+                                <!-- post -->
+                                <div class="post-thumbnail" style="background-image:url({{asset('admin/blogImage/'.$single->image)}})">
+                                        
+                                    <!-- .entry-header -->
+                                    <header class="entry-header">
+                                        
+                                        <!-- .entry-title -->
+                                        <h2 class="entry-title"><a href="{{url('/blog-details/'.$single->id)}}">{{$single->title}}</a></h2>
+                                        
+                                        <p><a href="{{url('/blog-details/'.$single->id)}}" class="more-link">View Post</a></p>
+                                        
+                                    </header>
+                                    <!-- .entry-header -->
                                     
-                                <!-- .entry-header -->
-                                <header class="entry-header">
-                                    
-                                    <!-- .entry-title -->
-                                    <h2 class="entry-title"><a href="blog-single.html">Embracing Nomadic Lifestyle</a></h2>
-                                    
-                                    <p><a href="blog-single.html" class="more-link">View Post</a></p>
-                                    
-                                </header>
-                                <!-- .entry-header -->
-                                
-                            </div>
-                            <!-- post -->
-                        
-                            <!-- post -->
-                            <div class="post-thumbnail" style="background-image:url(images/blog/04.jpg)">
-                                    
-                                <!-- .entry-header -->
-                                <header class="entry-header">
-                                    
-                                    <!-- .entry-title -->
-                                    <h2 class="entry-title"><a href="blog-single.html">Embracing Nomadic Lifestyle</a></h2>
-                                    
-                                    <p><a href="blog-single.html" class="more-link">View Post</a></p>
-                                    
-                                </header>
-                                <!-- .entry-header -->
-                                
-                            </div>
-                            <!-- post --> 
-                        
-                            <!-- post -->
-                            <div class="post-thumbnail" style="background-image:url(images/blog/05.jpg)">
-                                    
-                                <!-- .entry-header -->
-                                <header class="entry-header">
-                                    
-                                    <!-- .entry-title -->
-                                    <h2 class="entry-title"><a href="blog-single.html">Embracing Nomadic Lifestyle</a></h2>
-                                    
-                                    <p><a href="blog-single.html" class="more-link">View Post</a></p>
-                                    
-                                </header>
-                                <!-- .entry-header -->
-                                
-                            </div>
-                            <!-- post -->  
+                                </div>
+                                <!-- post -->
+                            @endforeach
                         
                         </aside>                               
                         <!-- realated-posts -->
@@ -231,55 +182,25 @@
                             
                             <!-- .commentlist -->
                             <ol class="commentlist">
-                            <li class="comment even thread-even depth-1">
-                                
-                                <!-- #comment-## -->
-                                <article class="comment">
-                                
-                                <!-- .comment-meta -->
-                                <header class="comment-meta comment-author vcard">
-                                    <img alt="" src="images/site/testo-01.jpg" class="avatar" height="75" width="75">
-                                    <cite class="fn"><a href="#" rel="external nofollow" class="url">Phillip Austin</a></cite>
-                                    <span class="comment-date">October 17, 2013 at 2:16 PM
-                                        <span class="comment-edit-link"><a href="#">Edit</a></span>
-                                    </span>
-                                </header>
-                                <!-- .comment-meta -->
-                                
-                                <!-- .comment-content -->
-                                <section class="comment-content comment">
-                                    <p>Hi, this is a very useful article. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
-                                </section>
-                                <!-- .comment-content -->
-                                
-                                <!-- .reply --> 
-                                <div class="reply">
-                                    <a class="comment-reply-link" href="#">Reply <span>↓</span></a>
-                                </div>
-                                <!-- .reply --> 
-                                
-                                </article>
-                                <!-- #comment-## -->
-                                
-                                <!-- .comment depth-2 -->
-                                <ol class="children">
-                                
-                                <li class="comment odd alt depth-2 bypostauthor">
+                            @foreach ($comments as $comment)
+                                <li class="comment even thread-even depth-1">
                                     
                                     <!-- #comment-## -->
                                     <article class="comment">
                                     
                                     <!-- .comment-meta -->
                                     <header class="comment-meta comment-author vcard">
-                                        <img alt="" src="images/site/author-1.jpg" class="avatar photo" height="75" width="75">
-                                        <cite class="fn"><a href="#" rel="external nofollow" class="url">Jeff Winger</a> <i>- Site Author</i></cite>
-                                        <span class="comment-date">October 17, 2013 at 2:16 PM</span>
+                                        <img alt="" src="images/site/testo-01.jpg" class="avatar" height="75" width="75">
+                                        <cite class="fn"><a href="#" rel="external nofollow" class="url">{{$comment->name}}</a></cite>
+                                        <span class="comment-date">{{$comment->created_at}}
+                                            {{-- <span class="comment-edit-link"><a href="#">Edit</a></span> --}}
+                                        </span>
                                     </header>
                                     <!-- .comment-meta -->
                                     
                                     <!-- .comment-content -->
                                     <section class="comment-content comment">
-                                        <p>Thanks Phillip, glad you liked it. Nice to see you around.</p>
+                                        <p>{{$comment->comment}}</p>
                                     </section>
                                     <!-- .comment-content -->
                                     
@@ -287,50 +208,19 @@
                                     <div class="reply">
                                         <a class="comment-reply-link" href="#">Reply <span>↓</span></a>
                                     </div>
-                                    <!-- .reply -->  
+                                    <!-- .reply --> 
                                     
                                     </article>
                                     <!-- #comment-## -->
                                     
-                                    <!-- .comment depth-3 -->
+                                    <!-- .comment depth-2 -->
                                     <ol class="children">
-                                    
-                                    <li class="comment even depth-3">
-                                        <article class="comment">
-                                        
-                                        <!-- .comment-meta -->
-                                        <header class="comment-meta comment-author vcard">
-                                            <img alt="" src="images/site/testo-03.jpg" class="avatar photo" height="75" width="75">
-                                            <cite class="fn"><a href="#" rel="external nofollow" class="url">Rachel Funny</a></cite>
-                                            <span class="comment-date">October 17, 2013 at 2:16 PM</span>
-                                        </header>
-                                        <!-- .comment-meta -->
-                                        
-                                        
-                                        <!-- .comment-content -->
-                                        <section class="comment-content comment">
-                                            <p>Hey guys, c'mon this is old stuff!</p>
-                                        </section>
-                                        <!-- .comment-content -->
-                                        
-                                        <!-- .reply --> 
-                                        <div class="reply">
-                                            <a class="comment-reply-link" href="#">Reply <span>↓</span></a>
-                                        </div>
-                                        <!-- .reply -->
-                                            
-                                        </article>
-                                        <!-- #comment-## -->
-                                        
-                                    </li>
+                                        @livewire('site.comment')
                                     </ol>
-                                    <!-- .comment depth-3 -->
+                                    <!-- .comment depth-2 -->
                                     
-                                </li>
-                                </ol>
-                                <!-- .comment depth-2 -->
-                                
-                            </li>
+                                </li>    
+                            @endforeach
                             <!-- .comment depth-1 -->
                             
                             
@@ -374,7 +264,8 @@
                             <h3 id="reply-title">LEAVE A COMMENT <small><a rel="nofollow" id="cancel-comment-reply-link" href="#" style="display:none;">Cancel reply</a></small></h3>
                             
                             <!-- .commentform -->
-                            <form action="#" method="post" id="commentform">
+                            <form method="post" action="{{url('insert-comment')}}" id="commentform">
+                            @csrf
                             
                                 <p class="comment-notes">Your email address will not be published. Required fields are marked <span class="required">*</span></p>
                                 
@@ -385,18 +276,15 @@
                                 
                                 <p class="comment-form-author">
                                 <label for="author">Name <span class="required">*</span></label>
-                                <input id="author" name="author" type="text" size="30" aria-required="true">
+                                <input id="author" name="name" type="text" size="30" aria-required="true">
                                 </p>
                                 
                                 <p class="comment-form-email">
                                 <label for="email">Email <span class="required">*</span></label>
                                 <input id="email" name="email" type="text" size="30" aria-required="true">
                                 </p>
-                                
-                                <p class="comment-form-url">
-                                <label for="url">Website</label>
-                                <input id="url" name="url" type="text" size="30">
-                                </p>
+
+                                <input type="hidden" name="blog_id" value="{{ $records->id }}">
                                 
                                 <p class="form-allowed-tags">You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes: <code>&lt;a href="" title=""&gt; &lt;abbr title=""&gt; &lt;acronym title=""&gt; &lt;b&gt; &lt;blockquote cite=""&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=""&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=""&gt; &lt;strike&gt; &lt;strong&gt; </code></p>
                                 
@@ -424,150 +312,7 @@
             
         
             <!-- #secondary -->
-            <div id="secondary" class="widget-area sidebar" role="complementary">
-            
-                <!-- widget : text -->
-                <aside class="widget widget_text">
-                    <h3 class="widget-title">About Me</h3>
-                    <div class="textwidget">
-                    <p><img src="images/site/about-me.jpg" alt="avatar"></p>
-                    <p>Hello. I am a freelance writer. I live in a small town somewhere in the world. I write about design and biking.</p>
-                    </div>
-                </aside>
-                <!-- widget : text -->
-                
-                <!-- widget : text -->
-                <aside class="widget widget_text">
-                    <h3 class="widget-title">Follow Me</h3>
-                    <div class="textwidget">
-                    <p>
-                        <a class="social-link facebook" href="#"></a>
-                        <a class="social-link twitter" href="#"></a>
-                        <a class="social-link vine" href="#"></a>
-                        <a class="social-link dribbble" href="#"></a>
-                        <a class="social-link instagram" href="#"></a>
-                    </p>
-                    </div>
-                </aside>
-                <!-- widget : text -->
-                
-                
-                <!-- widget :  MailChimp for WordPress Plugin --> 
-                <aside class="widget widget_mc4wp_widget">
-                    <h3 class="widget-title">Subscribe To Newsletter</h3>
-                    <div class="form mc4wp-form">
-                        <form method="post">
-                            <p>
-                                <label>Email address: </label>
-                                <input type="email" name="EMAIL" placeholder="Your email address" required="">
-                            </p>
-                            <p>
-                                <input type="submit" value="Sign up">
-                            </p>
-                        </form>
-                    </div>
-                </aside>
-                <!-- widget :  MailChimp for WordPress Plugin -->
-                
-                
-                <!-- widget : popular-posts -->
-                <!-- styles for plugin : https://wordpress.org/plugins/top-10 -->
-                <aside class="widget widget_widget_tptn_pop">
-                    <h3 class="widget-title">Trending Posts</h3>
-                    <div class="tptn_posts tptn_posts_widget">
-                        <ul>
-                        
-                            <li>
-                                <a href="#" class="tptn_link">
-                                    <img src="images/blog/p2.jpg" alt="post-image" class="tptn_thumb">
-                                </a>
-                                <span class="tptn_after_thumb">
-                                    <a href="#" class="tptn_link"><span class="tptn_title">Feel The Wind</span></a>
-                                    <!--<span class="tptn_author"> by <a href="#">Johnny Doe</a></span>-->
-                                    <span class="tptn_date"> September 3, 2014</span> 
-                                </span>
-                            </li>
-                        
-                            <li>
-                                <a href="#" class="tptn_link">
-                                    <img src="images/blog/p3.jpg" alt="post-image" class="tptn_thumb">
-                                </a>
-                                <span class="tptn_after_thumb">
-                                    <a href="#" class="tptn_link"><span class="tptn_title">Stop Worrying About How Pretty It is</span></a>
-                                    <!--<span class="tptn_author"> by <a href="#">Johnny Doe</a></span>-->
-                                    <span class="tptn_date"> September 3, 2014</span> 
-                                </span>
-                            </li>
-                        
-                            <li>
-                                <a href="#" class="tptn_link">
-                                    <img src="images/blog/p4.jpg" alt="post-image" class="tptn_thumb">
-                                </a>
-                                <span class="tptn_after_thumb">
-                                    <!--<span class="tptn_author"> by <a href="#">Johnny Doe</a></span>-->
-                                    <a href="#" class="tptn_link"><span class="tptn_title">10 Killer Blogging Tips</span></a>
-                                    <span class="tptn_date"> September 3, 2014</span> 
-                                </span>
-                            </li>
-                        
-                            <li>
-                                <a href="#" class="tptn_link">
-                                    <img src="images/blog/p1.jpg" alt="post-image" class="tptn_thumb">
-                                </a>
-                                <span class="tptn_after_thumb">
-                                    <a href="#" class="tptn_link"><span class="tptn_title">Exploring Wild Canyons</span></a>
-                                    <!--<span class="tptn_author"> by <a href="#">Johnny Doe</a></span>-->
-                                    <span class="tptn_date"> September 3, 2014</span> 
-                                </span>
-                            </li>
-                        
-                            <li>
-                                <a href="#" class="tptn_link">
-                                    <img src="images/blog/p5.jpg" alt="post-image" class="tptn_thumb">
-                                </a>
-                                <span class="tptn_after_thumb">
-                                    <a href="#" class="tptn_link"><span class="tptn_title">Dive Into The Sea Life</span></a>
-                                    <!--<span class="tptn_author"> by <a href="#">Johnny Doe</a></span>-->
-                                    <span class="tptn_date"> September 3, 2014</span> 
-                                </span>
-                            </li>
-                            
-                            
-                            <!--<li>
-                                <span class="tptn_after_thumb">
-                                    <a href="#" class="tptn_link"><span class="tptn_title">Keep it Simple Dummy!</span></a>
-                                    <span class="tptn_author"> by <a href="#">Johnny Doe</a></span>
-                                    <span class="tptn_date"> September 3, 2014</span> 
-                                </span>
-                            </li>-->
-                            
-                        </ul>
-                    </div>
-                </aside>
-                <!-- widget : popular-posts -->
-                
-                
-                <!-- widget : categories -->
-                <aside class="widget widget_categories">
-                    <h3 class="widget-title">Categories</h3>
-                    <ul>
-                    <li class="cat-item"><a href="#" title="View all posts filed under Nature">Nature</a></li>
-                    <li class="cat-item"><a href="#" title="View all posts filed under Life">Life</a></li>
-                    <li class="cat-item"><a href="#" title="View all posts filed under Adventure">Adventure</a></li>
-                    <li class="cat-item"><a href="#" title="View all posts filed under Freebies">Freebies</a></li>
-                    </ul>
-                </aside>
-                <!-- widget : categories -->
-                
-                
-                <!-- widget : text -->
-                <aside class="widget widget_text">
-                    <!--<h3 class="widget-title">BANNER</h3>-->
-                    <div class="textwidget">
-                    <a href="#"><img src="images/blog/banner.jpg" alt="banner"></a>
-                    </div>
-                </aside>     
-            </div>
+                @livewire('site.sidebar')
             <!-- #secondary -->
             
             

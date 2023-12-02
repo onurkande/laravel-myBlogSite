@@ -88,6 +88,12 @@ class FooterController extends Controller
     function view()
     {
         $footer = Footer::first();
-        return $footer;
+        if($footer != null)
+        {
+            return $footer;
+        }else
+        {
+            return null;
+        }
     }
 }
