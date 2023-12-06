@@ -31,7 +31,7 @@
                             <time class="entry-date" datetime="2014-07-13T04:34:10+00:00">{{$records->created_at}}</time>
                         </span> 
                         <span class="comment-link">
-                            <a href="#comments">4 Comments</a>
+                            <a href="#comments">{{count($comments)}} COMMENTS</a>
                         </span>
                     </div>
                     <!-- .entry-meta -->
@@ -178,84 +178,9 @@
                         <!-- #comments -->
                         <div id="comments" class="comments-area">
                             
-                            <h3>4 Comments</h3>
+                            <h3>{{count($comments)}} COMMENTS</h3>
                             
-                            <!-- .commentlist -->
-                            <ol class="commentlist">
-                            @foreach ($comments as $comment)
-                                <li class="comment even thread-even depth-1">
-                                    
-                                    <!-- #comment-## -->
-                                    <article class="comment">
-                                    
-                                    <!-- .comment-meta -->
-                                    <header class="comment-meta comment-author vcard">
-                                        <img alt="" src="images/site/testo-01.jpg" class="avatar" height="75" width="75">
-                                        <cite class="fn"><a href="#" rel="external nofollow" class="url">{{$comment->name}}</a></cite>
-                                        <span class="comment-date">{{$comment->created_at}}
-                                            {{-- <span class="comment-edit-link"><a href="#">Edit</a></span> --}}
-                                        </span>
-                                    </header>
-                                    <!-- .comment-meta -->
-                                    
-                                    <!-- .comment-content -->
-                                    <section class="comment-content comment">
-                                        <p>{{$comment->comment}}</p>
-                                    </section>
-                                    <!-- .comment-content -->
-                                    
-                                    <!-- .reply --> 
-                                    <div class="reply">
-                                        <a class="comment-reply-link" href="#">Reply <span>↓</span></a>
-                                    </div>
-                                    <!-- .reply --> 
-                                    
-                                    </article>
-                                    <!-- #comment-## -->
-                                    
-                                    <!-- .comment depth-2 -->
-                                    <ol class="children">
-                                        @livewire('site.comment')
-                                    </ol>
-                                    <!-- .comment depth-2 -->
-                                    
-                                </li>    
-                            @endforeach
-                            <!-- .comment depth-1 -->
-                            
-                            
-                            <!-- .comment depth-1 -->
-                            <li class="comment odd alt thread-odd thread-alt depth-1">
-                                <article id="comment-5" class="comment">
-                                
-                                <!-- .comment-meta -->
-                                <header class="comment-meta comment-author vcard">
-                                    <img alt="" src="images/site/testo-02.jpg" class="avatar avatar-44 photo" height="75" width="75">
-                                    <cite class="fn"><a href="#" rel="external nofollow" class="url">Gary Morgan</a></cite>
-                                    <span class="comment-date">October 17, 2013 at 2:16 PM</span>
-                                </header>
-                                <!-- .comment-meta -->
-                                
-                                <!-- .comment-content -->
-                                <section class="comment-content comment">
-                                    <p class="comment-awaiting-moderation">Your comment is awaiting moderation.</p>
-                                    <p>Hi, this is cool but i know something cooler than this, new iPad!</p>
-                                </section>
-                                <!-- .comment-content -->
-                                
-                                <!-- .reply --> 
-                                <div class="reply">
-                                    <a class="comment-reply-link" href="#">Reply <span>↓</span></a>
-                                </div>
-                                <!-- .reply -->
-                                
-                                </article>
-                                <!-- #comment-## --> 
-                            </li>
-                            <!-- .comment depth-1 -->
-                            
-                            </ol>
-                            <!-- .commentlist -->
+                            @livewire('site.comment',['comments'=>$comments,'blog_id'=>$records->id])
                             
                             
                             <!-- #respond --> 
@@ -265,7 +190,7 @@
                             
                             <!-- .commentform -->
                             <form method="post" action="{{url('insert-comment')}}" id="commentform">
-                            @csrf
+                                @csrf
                             
                                 <p class="comment-notes">Your email address will not be published. Required fields are marked <span class="required">*</span></p>
                                 

@@ -17,6 +17,11 @@ class CommentController extends Controller
         $comments->comment = $request->input('comment');
         $blog_id = $request->input('blog_id');
 
+        if($request->input('parent_id'))
+        {
+            $comments->parent_id = $request->input('parent_id');
+        }
+
         $comments->blog_id = $blog_id;
 
         $comments->save();

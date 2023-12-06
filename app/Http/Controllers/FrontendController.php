@@ -23,7 +23,8 @@ class FrontendController extends Controller
         $records->views++;
         $records->save();
         
-        $comments = Comment::all();
+        //$comments = Comment::all();
+        $comments = Comment::where('blog_id', $id)->get();
         $blogs = Blog::all();
         return view('blog-single',['records'=>$records,'comments'=>$comments,'blogs'=>$blogs]);
     }

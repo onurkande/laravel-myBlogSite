@@ -6,10 +6,22 @@ use Livewire\Component;
 
 class Comment extends Component
 {
-    public $comment;
+    public $comments;
+    public $blog_id;
+    public $replyForms = [];
+    protected $listeners = ['toggleReplyForm'];
+
     public function render()
     {
-        $this->comment=app('App\Http\Controllers\CommentController')->view();
-        return view('livewire.site.comment',['comment'=>$this->comment]);
+        return view('livewire.site.comment');
+    }
+
+    public function toggleReplyForm($commentId)
+    {
+        if (!isset($this->replyForms[$commentId])) {
+            $this->replyForms[$commentId] = true;
+        } else {
+            $this->replyForms[$commentId] = !$this->replyForms[$commentId];
+        }
     }
 }
