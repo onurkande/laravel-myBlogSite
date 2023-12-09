@@ -25,7 +25,7 @@ class ContactController extends Controller
             'message' => $request->message
         ];
 
-        Mail::to('kandemiro972@gmail.com')->send(new ContactMail($data));
+        Mail::to('kandemon6633@gmail.com')->send(new ContactMail($data));
         return redirect('contact')->with('store', "Mesaj gönderildi");
     }
 }

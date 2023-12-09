@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('image');
             $table->string('title');
             $table->string('slug');
+            $table->string('keywords')->nullable();
+            $table->longText('description')->nullable();
             $table->longText('content');
             $table->bigInteger('views')->default(0);
             $table->timestamps();

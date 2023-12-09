@@ -61,11 +61,11 @@
                 <ul>
                     @foreach($trendingBlogs as $single)
                         <li>
-                            <a href="{{url('/blog-details/'.$single->id)}}" class="tptn_link">
+                            <a href="{{url('/blog-details/'.$single->slug)}}" class="tptn_link">
                                 <img src="{{asset('admin/blogImage/'.$single->image)}}" alt="post-image" class="tptn_thumb">
                             </a>
                             <span class="tptn_after_thumb">
-                                <a href="{{url('/blog-details/'.$single->id)}}" class="tptn_link"><span class="tptn_title">{{$single->title}}</span></a>
+                                <a href="{{url('/blog-details/'.$single->slug)}}" class="tptn_link"><span class="tptn_title">{{$single->title}}</span></a>
                                 <!--<span class="tptn_author"> by <a href="#">Johnny Doe</a></span>-->
                                 <span class="tptn_date"> {{$single->created_at}}</span> 
                             </span>

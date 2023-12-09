@@ -1,5 +1,7 @@
 @extends('layouts.main')
 @section('title','blog-single')
+@section('keywords',$records->keywords)
+@section('description',$records->description)
 @section('content')
     <!-- site-main -->
     <div id="main" class="site-main"> <!-- .featured-top -->
@@ -106,14 +108,14 @@
                                     @if($previousPost)
                                         <div class="nav-previous col-xs-6">
                                             <h4>ÖNCEKİ POST</h4>
-                                            <a href="{{url('/blog-details/'.$previousPost->id)}}" rel="prev">{{$previousPost->title}}</a>
+                                            <a href="{{url('/blog-details/'.$previousPost->slug)}}" rel="prev">{{$previousPost->title}}</a>
                                         </div>
                                     @endif
                                     
                                     @if($nextPost)
                                         <div class="nav-next col-xs-6">
                                             <h4>SONRAKİ POST</h4>
-                                            <a href="{{url('/blog-details/'.$nextPost->id)}}" rel="next">{{$nextPost->title}}</a>
+                                            <a href="{{url('/blog-details/'.$nextPost->slug)}}" rel="next">{{$nextPost->title}}</a>
                                         </div>
                                     @endif
                                     
@@ -158,9 +160,9 @@
                                     <header class="entry-header">
                                         
                                         <!-- .entry-title -->
-                                        <h2 class="entry-title"><a href="{{url('/blog-details/'.$single->id)}}">{{$single->title}}</a></h2>
+                                        <h2 class="entry-title"><a href="{{url('/blog-details/'.$single->slug)}}">{{$single->title}}</a></h2>
                                         
-                                        <p><a href="{{url('/blog-details/'.$single->id)}}" class="more-link">View Post</a></p>
+                                        <p><a href="{{url('/blog-details/'.$single->slug)}}" class="more-link">View Post</a></p>
                                         
                                     </header>
                                     <!-- .entry-header -->

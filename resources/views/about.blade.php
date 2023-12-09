@@ -1,5 +1,7 @@
 @extends('layouts.main')
 @section('title','about')
+@section('keywords','about,iletisim ,sayfasi, icerik, kismi')
+@section('description','about sayfasi icerik kismi')
 @section('content')
     <!-- site-main -->
         <div id="main" class="site-main"> <!-- .featured-top -->

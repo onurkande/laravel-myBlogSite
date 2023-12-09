@@ -21,8 +21,8 @@
     <!-- STYLES -->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/fonts/fontello/css/fontello.css')}}">
-    {{-- <link rel="stylesheet" type="text/css" href="{{asset('assets/js/jquery.magnific-popup/magnific-popup.css')}}"> --}}
-    {{-- <link rel="stylesheet" type="text/css" href="{{asset('assets/js/jquery.fluidbox/fluidbox.css')}}"> --}}
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/js/jquery.magnific-popup/magnific-popup.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/js/jquery.fluidbox/fluidbox.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/js/owl-carousel/owl.carousel.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/js/selection-sharer/selection-sharer.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/rotate-words.css')}}">

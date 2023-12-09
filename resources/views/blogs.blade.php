@@ -1,5 +1,7 @@
 @extends('layouts.main')
-@section('title','cat-archives')
+@section('title','bloglar')
+@section('keywords','bloglar,ana sayfa')
+@section('description','bloglar sayfasi icerik kismi')
 @section('content')
             <!-- site-main -->
         <div id="main" class="site-main">

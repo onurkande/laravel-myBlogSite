@@ -26,7 +26,7 @@ Route::get('/', [FrontendController::class, 'index']);
 
 Route::get('/blogs', [FrontendController::class, 'blogs']);
 
-Route::get('blog-details/{id}', [FrontendController::class, 'blog_detail']);
+Route::get('blog-details/{slug}', [FrontendController::class, 'blog_detail']);
 
 Route::get('/resume', function () {
     return view('resume');

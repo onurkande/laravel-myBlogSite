@@ -1,5 +1,7 @@
 @extends('layouts.main')
 @section('title','home')
+@section('keywords','home,ana sayfa')
+@section('description','ana sayfa')
 @section('content')
     <!-- site-main -->
         <div id="main" class="site-main">
@@ -16,15 +18,15 @@
                                 <!-- .entry-meta -->
                                 <div class="entry-meta">
                                     <span class="cat-links">
-                                        <a href="{{url('/blog-details/'.$slide->id)}}" title="View all posts in Life" rel="category tag">{{$slide->category->name}}</a>
+                                        <a href="{{url('/blog-details/'.$slide->slug)}}" title="View all posts in Life" rel="category tag">{{$slide->category->name}}</a>
                                     </span>	
                                 </div>
                                 <!-- .entry-meta -->
                                 
                                 <!-- .entry-title -->
-                                <h2 class="entry-title"><a href="{{url('/blog-details/'.$slide->id)}}">{{$slide->title}}</a></h2>
+                                <h2 class="entry-title"><a href="{{url('/blog-details/'.$slide->slug)}}">{{$slide->title}}</a></h2>
                                 
-                                <p><a href="{{url('/blog-details/'.$slide->id)}}" class="more-link">View Post</a></p>
+                                <p><a href="{{url('/blog-details/'.$slide->slug)}}" class="more-link">View Post</a></p>
                                 
                             </header>
                             <!-- .entry-header -->

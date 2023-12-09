@@ -1,5 +1,7 @@
 @extends('layouts.main')
 @section('title','contact')
+@section('keywords','contact,iletisim')
+@section('description','iletisim sayfasi')
 @section('content')
     @if(session()->has('store'))
         <div class="alert alert-success" role="alert">

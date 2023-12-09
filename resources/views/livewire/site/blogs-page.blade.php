@@ -22,7 +22,7 @@
             
                 <!-- .featured-image -->
                 <div class="featured-image">
-                    <a href="{{url('/blog-details/'.$record->id)}}" title="{{$record->title}}"><img src="{{asset('admin/blogImage/'.$record->image)}}" alt="blog-image"></a>
+                    <a href="{{url('/blog-details/'.$record->slug)}}" title="{{$record->title}}"><img src="{{asset('admin/blogImage/'.$record->image)}}" alt="blog-image"></a>
                 </div>
                 <!-- .featured-image -->
                 
@@ -49,7 +49,7 @@
                         <!-- .entry-meta -->
                         
                         <!-- .entry-title -->
-                        <h2 class="entry-title"><a href="{{url('/blog-details/'.$record->id)}}" title="Stop Worrying About How Pretty It is">{{$record->title}}</a></h2>
+                        <h2 class="entry-title"><a href="{{url('/blog-details/'.$record->slug)}}" title="Stop Worrying About How Pretty It is">{{$record->title}}</a></h2>
                         
                     </header>
                     <!-- .entry-header -->
@@ -64,7 +64,7 @@
                                                         
                         <p>{!!$summary!!}..
                             <span class="more">
-                                <a href="{{url('/blog-details/'.$record->id)}}" class="more-link">Read More</a>
+                                <a href="{{url('/blog-details/'.$record->slug)}}" class="more-link">Read More</a>
                             </span>
                         </p>
                     

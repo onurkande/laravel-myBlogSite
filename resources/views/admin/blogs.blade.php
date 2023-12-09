@@ -45,6 +45,7 @@
                         <th>Id</th>
                         <th>Title</th>
                         <th>Category</th>
+                        <th>slug</th>
                         <th>Image</th>
                         <th></th>
                     </tr>
@@ -55,6 +56,7 @@
                             <td>{{$record->id}}</td>
                             <td>{{$record->title}}</td>
                             <td>{{$record->category->name}}</td>
+                            <td>{{$record->slug}}</td>
                             <td>
                                 <img src="{{asset('admin/blogImage/'.$record->image)}}" alt="Image" width="300">
                             </td>

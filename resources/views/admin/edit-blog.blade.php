@@ -29,6 +29,14 @@
                         <label for="">Slug</label>
                         <input type="text" class="form-control" name="slug" value="{{$records->slug}}">
                     </div>
+                    <div class="col-md-6">
+                        <label for="">Description</label>
+                        <textarea type="text" cols="30" rows="4" class="form-control" name="description">{{$records->description}}</textarea>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="">Keywords</label>
+                        <input type="text" class="form-control" name="keywords" value="{{$records->keywords}}">
+                    </div>
                 </div>
 
                 <br>

@@ -22,7 +22,7 @@
             <header class="entry-header">
                 
                 <!-- .entry-title -->
-                <h2 class="entry-title"><a href="{{url('/blog-details/'.$blog->id)}}">{{$blog->title}}</a></h2>
+                <h2 class="entry-title"><a href="{{url('/blog-details/'.$blog->slug)}}">{{$blog->title}}</a></h2>
                 
                 <!-- .entry-meta -->
                 <div class="entry-meta">
@@ -43,7 +43,7 @@
             
             <!-- .featured-image -->
             <div class="featured-image">
-                <a href="{{url('/blog-details/'.$blog->id)}}">
+                <a href="{{url('/blog-details/'.$blog->slug)}}">
                     <img src="{{asset('admin/blogImage/'.$blog->image)}}" alt="{{$blog->image}}">
                 </a>
             </div>
@@ -59,7 +59,7 @@
             
                 <p>{!!$summary!!}...
                     <span class="more">
-                        <a href="{{url('/blog-details/'.$blog->id)}}" class="more-link">Read More</a>
+                        <a href="{{url('/blog-details/'.$blog->slug)}}" class="more-link">Read More</a>
                     </span>
                 </p>
                 

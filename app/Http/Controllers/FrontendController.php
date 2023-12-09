@@ -16,14 +16,15 @@ class FrontendController extends Controller
         return view("index",["slider"=> $slider]);
     }
 
-    function blog_detail($id)
+    function blog_detail($slug)
     {
-        $records = Blog::find($id);
+        // $records = Blog::find($slug);
+        $records = Blog::where('slug', $slug)->first();
 
         $records->views++;
         $records->save();
         
-        $comments = Comment::where('blog_id', $id)->get();
+        $comments = Comment::where('blog_id', $slug)->get();
         $blogs = Blog::all();
         return view('blog-single',['records'=>$records,'comments'=>$comments,'blogs'=>$blogs]);
     }
