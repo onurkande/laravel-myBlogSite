@@ -1,19 +1,20 @@
 <div>
     <div id="secondary" class="widget-area sidebar" role="complementary">
         
+        @if($abouts)
         <!-- widget : text -->
-        <aside class="widget widget_text">
-            <h3 class="widget-title">{{$abouts->title}}</h3>
-            <div class="textwidget">
-            <p><img src="{{asset('admin/aboutImage/'.$abouts->image)}}" alt="avatar"></p>
-            @php
-                $content = strip_tags($abouts->content); // HTML etiketlerini kaldırın
-                $words = str_word_count($content, 1); // İçeriği kelimelere ayırın
-                $summary = implode(' ', array_slice($words, 0, 16)); // İlk 75 kelimeyi alın
-            @endphp
-            <p>{!!$summary!!}...</p>
-            </div>
-        </aside>
+            <aside class="widget widget_text">
+                <h3 class="widget-title">{{$abouts->title}}</h3>
+                <div class="textwidget">
+                <p><img src="{{asset('admin/aboutImage/'.$abouts->image)}}" alt="avatar"></p>
+                @php
+                    $content = strip_tags($abouts->content); // HTML etiketlerini kaldırın
+                    $words = str_word_count($content, 1); // İçeriği kelimelere ayırın
+                    $summary = implode(' ', array_slice($words, 0, 16)); // İlk 75 kelimeyi alın
+                @endphp
+                <p>{!!$summary!!}...</p>
+                </div>
+            </aside>
         <!-- widget : text -->
         
         <!-- widget : text -->
@@ -32,6 +33,7 @@
             </div>
         </aside>
         <!-- widget : text -->
+        @endif
         
         
         <!-- widget :  MailChimp for WordPress Plugin --> 
@@ -53,6 +55,7 @@
         <!-- widget :  MailChimp for WordPress Plugin -->
         
         
+        @if($trendingBlogs)
         <!-- widget : popular-posts -->
         <!-- styles for plugin : https://wordpress.org/plugins/top-10 -->
         <aside class="widget widget_widget_tptn_pop">
@@ -87,6 +90,7 @@
             </ul>
         </aside>
         <!-- widget : categories -->
+        @endif
         
         
         <!-- widget : text -->

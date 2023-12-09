@@ -4,6 +4,7 @@
 @section('description','about sayfasi icerik kismi')
 @section('content')
     <!-- site-main -->
+    @if($records)
         <div id="main" class="site-main"> <!-- .featured-top -->
             <div class="featured-top">
                     
@@ -82,4 +83,5 @@
         
         </div>
     <!-- site-main -->
+    @endif
 @endsection
