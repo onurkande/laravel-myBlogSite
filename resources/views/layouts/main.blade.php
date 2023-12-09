@@ -1,14 +1,15 @@
 <!doctype html>
 
-<html lang="en" class="minimal-style is-menu-fixed is-always-fixed is-selection-shareable blog-animated header-light header-small" data-effect="slideUp">
+<html lang="tr" class="minimal-style is-menu-fixed is-always-fixed is-selection-shareable blog-animated header-light header-small" data-effect="slideUp">
 <head>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Impose - Responsive HTML5 Template">
-    <meta name="keywords" content="personal, blog, html5">
-    <meta name="author" content="Pixelwars">
+    <meta name="description" content="@yield('description')">
+    <meta name="keywords" content="@yield('keywords')">
+    <meta name="author" content="Onur Kandemir">
     <title>@yield('title')</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     
     <!-- FAV and TOUCH ICONS -->
     <link rel="shortcut icon" href="{{asset('assets/images/ico/favicon.ico')}}">
@@ -20,8 +21,8 @@
     <!-- STYLES -->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/fonts/fontello/css/fontello.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/js/jquery.magnific-popup/magnific-popup.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/js/jquery.fluidbox/fluidbox.css')}}">
+    {{-- <link rel="stylesheet" type="text/css" href="{{asset('assets/js/jquery.magnific-popup/magnific-popup.css')}}"> --}}
+    {{-- <link rel="stylesheet" type="text/css" href="{{asset('assets/js/jquery.fluidbox/fluidbox.css')}}"> --}}
     <link rel="stylesheet" type="text/css" href="{{asset('assets/js/owl-carousel/owl.carousel.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/js/selection-sharer/selection-sharer.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/rotate-words.css')}}">
@@ -30,7 +31,8 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/js/shortcodes/shortcodes.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/768.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/992.css')}}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}">
+    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"> --}}
 
     <!-- INITIAL SCRIPTS -->
 	<script src="{{asset('assets/js/modernizr.min.js')}}"></script>

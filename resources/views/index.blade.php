@@ -37,13 +37,7 @@
             </div>
             <!-- post-slider -->
 		
-        
-			
-			
-			
-			
-            
-			
+
 			<div class="layout-medium"> 
                 <div id="primary" class="content-area with-sidebar">
 

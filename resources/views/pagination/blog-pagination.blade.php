@@ -1,5 +1,5 @@
 @if ($paginator->hasPages())
-
+<div class="nav-container">
     <nav class="post-pagination">
         <ul class="pagination">
             {{-- <li class="pagination-first"><a href="#"> First </a></li> --}}
@@ -41,5 +41,6 @@
             {{-- <li class="pagination-last"><a href="#"> Last </a> </li> --}}
         </ul>
     </nav>
+</div>
 
 @endif

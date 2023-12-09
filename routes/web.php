@@ -59,8 +59,6 @@ Route::get('/404', function () {
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/search', [FrontendController::class, 'search']);
-
 Route::post('insert-comment', [CommentController::class, 'store']);
 
 Route::post('insert-email', [BlogPostNotificationController::class, 'store']);

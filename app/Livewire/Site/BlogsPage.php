@@ -6,8 +6,9 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\Blog;
 
-class Blogs extends Component
+class BlogsPage extends Component
 {
+
     use WithPagination;
     protected $queryString = ['arama']; // Sayfa numarası gibi parametrelerin URL'de görünmesini engeller
     public $arama = '';
@@ -22,6 +23,6 @@ class Blogs extends Component
     public function render()
     {
         $this->blogs = Blog::orWhere('title', 'like', '%' . $this->arama. '%')->paginate(6);
-        return view('livewire.site.blogs', ['blogs' => $this->blogs]);
+        return view('livewire.site.blogs-page', ['blogs' => $this->blogs]);
     }
 }

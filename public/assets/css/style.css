@@ -1,0 +1,83 @@
+.form {
+    width: 500px; /* İstediğiniz genişliği burada ayarlayabilirsiniz */
+}
+.custom-width{
+    max-width: initial; /* veya istediğiniz başka bir değer */
+    width: 500px; 
+}
+
+.nav-container {
+    display: flex;
+    justify-content: center;
+}
+
+/*.blogs {
+    margin: 2em 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    }
+    .blogs .hentry {
+        width: calc(50% - 10px); 
+        margin-bottom: 20px;
+        font-size: 13px;
+        font-family: 'Noto Sans', sans-serif;
+        
+        -webkit-text-size-adjust: none;
+        overflow-x: hidden;
+        margin-top: 0;
+    }
+.blogs.hentry{
+    justify-content: center;
+    margin: 1em;
+    background: #fff;
+    
+    margin-bottom: 0.4em;
+    padding: 0 10px 10px 10px;
+    width: 100%;
+}
+.blogs .entry-content {
+    margin-top: 1.2em;
+    }
+.blogs .entry-meta {
+    padding-top: .6em; 
+    }
+.blogs .comment-link {
+    display: none;
+    }
+.blogs .entry-header {
+    padding-top: 1em;
+    font-family: 'Noto Sans', sans-serif;
+    text-align: left;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em; 
+    margin-left: 0;
+    }
+.blogs .hentry .entry-title {
+    font-size: 14px; 
+    font-weight: 600; 
+    text-transform: uppercase;
+    display: block;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    }
+.blogs .featured-image {
+    margin: 0; 
+    }
+
+@media screen and (max-width: 767px) {
+    .blogs .entry-content {
+        font-size: 11px;
+        }	
+    }
+.blogs + .navigation,
+.blogs + .post-pagination { 
+    padding-left: 10px; padding-right: 10px; padding-top: 0;
+    } 
+
+    .blogs .featured-image {
+        margin: 0;
+    }
+    */

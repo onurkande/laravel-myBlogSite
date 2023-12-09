@@ -23,7 +23,6 @@ class FrontendController extends Controller
         $records->views++;
         $records->save();
         
-        //$comments = Comment::all();
         $comments = Comment::where('blog_id', $id)->get();
         $blogs = Blog::all();
         return view('blog-single',['records'=>$records,'comments'=>$comments,'blogs'=>$blogs]);
@@ -31,39 +30,12 @@ class FrontendController extends Controller
 
     function blogs()
     {
-        $records = Blog::all();
-        return view('blogs',['records'=>$records]);
+        return view('blogs');
     }
 
     function about()
     {
         $records = app('App\Http\Controllers\AboutController')->view();
         return view('about',['records'=>$records]);
-    }
-
-    public function search(Request $request)
-    {
-        // $query = $request->input('s');
-
-        // $blogs = Blog::where('title', 'like', "%$query%")
-        //     ->orWhere('cate_id', 'like', "%$query%")
-        //     ->orWhere('content', 'like', "%$query%")
-        //     ->get();
-
-        // Bu noktada, elde edilen sonuçları bir değişkene atayabilir ve view'e gönderebilirsiniz.
-        // return view('index', ['blogs' => $blogs]);
-
-        $search = $request->search;
-
-        $blogs = Blog::where(function($query) use ($search)
-            {
-                $query->where('title','like', "%$search%")
-                ->orWhere('content','like',"%$search%");
-            })
-            ->orWhereHas('category', function($query) use ($search){
-                $query->where('name','like', "%$search%");
-            })->get();
-
-        return view("index",compact("blogs","search"));
     }
 }
